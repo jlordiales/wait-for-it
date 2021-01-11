@@ -70,6 +70,7 @@ parse_arguments() {
           HOST[$index]=${hostport[0]}
           PORT[$index]=${hostport[1]}
           shift 1
+          let index+=1
           ;;
           --child)
           CHILD=1
@@ -105,7 +106,6 @@ parse_arguments() {
           usage
           ;;
       esac
-      let index+=1
   done
   if [[ ${#HOST[@]} -eq 0 || ${#PORT[@]} -eq 0 ]]; then
       echoerr "Error: you need to provide a host and port to test."

@@ -3,7 +3,7 @@
 ## Usage
 
 ```
-wait-for-it.sh host:port [-s] [-t timeout] [-- command args]
+wait-for-it.sh host:port [host:port ...] [-s] [-t timeout] [-- command args]
 -h HOST | --host=HOST       Host or IP under test
 -p PORT | --port=PORT       TCP port under test
                             Alternatively, you specify the host and port as host:port
@@ -15,6 +15,11 @@ wait-for-it.sh host:port [-s] [-t timeout] [-- command args]
 ```
 
 ## Examples
+
+```bash
+# Multiple services
+./wait-for-it.sh db:5432 web:443 -t 60 -s -- echo "Hello world"
+```
 
 For example, let's test to see if we can access port 80 on www.google.com, and if it is available, echo the message `google is up`.
 
